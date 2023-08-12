@@ -1,0 +1,7 @@
+.todolist_container {
+    display: block;
+    width: 100%;
+    height: fit-content;
+    background: var(--very-dark-desaturated-blue);
+    border-radius: 5px;
+}

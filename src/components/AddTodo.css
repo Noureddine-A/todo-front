@@ -1,0 +1,21 @@
+.todo__add-container {
+    width: 100%;
+    height: 8%;
+    margin-bottom: 2rem;
+}
+
+.todo__add-container input {
+    background: var(--very-dark-desaturated-blue);
+    height: 100%;
+    width: 100%;
+    padding-left: 2rem;
+    font-family: var(--regular);
+    font-size: var(--font-size);
+    border: none;
+    border-radius: 5px;
+}
+
+.todo__add-container input:focus {
+    outline: none;
+    color: white;
+}
