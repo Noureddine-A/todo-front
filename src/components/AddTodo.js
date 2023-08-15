@@ -24,11 +24,13 @@ const AddTodo = () => {
     if (todo !== "") {
       const todoItem = new Todo();
       todoItem.name = todo;
+      todoItem.completed = false;
 
       const request = new Req();
       request.method = "POST";
       request.body = {
         name: todo,
+        completed: todoItem.completed
       };
       request.path = "add";
 

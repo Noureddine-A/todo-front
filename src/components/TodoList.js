@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import "./TodoList.css";
 import TodoItem from "./TodoItem";
 import useHttp from "../hooks/usehttp";
 import Req from "../classes/Req";
 import { useSelector } from "react-redux";
+import TodoOperations from "./TodoOperations";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -12,6 +13,8 @@ const TodoList = () => {
   const retrievedTodos = useSelector((state) => state.todos.todosList);
 
   const { sendRequest } = useHttp();
+
+  let showTodoOperations = false;
 
   const fetchTodos = (data) => {
     for (let i = 0; i < data.length; i++) {
@@ -31,12 +34,29 @@ const TodoList = () => {
     sendRequest(request, fetchTodos);
   }, []);
 
+  if (todos.length > 0) {
+    showTodoOperations = true;
+  } else {
+    showTodoOperations = false;
+  }
+
   return (
-    <div className="todolist_container">
-      {todos.map((todo) => {
-        return <TodoItem key={todo._id} name={todo.name} />;
-      })}
-    </div>
+    <Fragment>
+      <div className="todolist_container">
+        {todos.map((todo) => {
+          return (
+            <TodoItem
+              key={todo._id}
+              id={todo._id}
+              name={todo.name}
+              fetchTodos={fetchTodos}
+              completed={todo.completed}
+            />
+          );
+        })}
+      </div>
+      {showTodoOperations && <TodoOperations todosAmount={todos.length} />}
+    </Fragment>
   );
 };
 

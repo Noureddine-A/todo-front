@@ -2,13 +2,14 @@
   display: flex;
   height: 7vh;
   border-bottom: 1px var(--very-dark-grayish-blue) solid;
+  width: 100%;
 }
 
 .todo_check-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 10%;
+  width: 15%;
   height: 100%;
 }
 
@@ -22,29 +23,47 @@
 .todo_item-name {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-size: var(--font-size);
   font-family: var(--regular);
   color: white;
-  width: 85%;
+  width: 100%;
 }
 
 .todo_item-remove {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 100%;
 }
 
-.todo_item-remove img {
-    opacity: 0;
+.todo_check:hover {
+  background: url("../assets/images/icon-check.svg"), var(--check-background);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.todo_item-container:hover {
-  .todo_check {
-    background: url("../assets/images/icon-check.svg"), var(--check-background);
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+/* Enabled when todo is completed*/
 
-  .todo_item-remove img {
-    opacity: 1;
-  }
+.todo_item-name-completed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size);
+  font-family: var(--regular);
+  color: white;
+  width: 100%;
+  color: var(--dark-grayish-blue);
+  text-decoration: line-through;
+}
+
+.todo_check-completed {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 1px var(--very-dark-grayish-blue) solid;
+  background: url("../assets/images/icon-check.svg"), var(--check-background);
+  background-repeat: no-repeat;
+  background-position: center;
 }
