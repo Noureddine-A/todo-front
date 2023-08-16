@@ -14,7 +14,6 @@ const TodoList = () => {
 
   const { sendRequest } = useHttp();
 
-  let showTodoOperations = false;
 
   const fetchTodos = (data) => {
     for (let i = 0; i < data.length; i++) {
@@ -34,12 +33,6 @@ const TodoList = () => {
     sendRequest(request, fetchTodos);
   }, []);
 
-  if (todos.length > 0) {
-    showTodoOperations = true;
-  } else {
-    showTodoOperations = false;
-  }
-
   return (
     <Fragment>
       <div className="todolist_container">
@@ -55,7 +48,7 @@ const TodoList = () => {
           );
         })}
       </div>
-      {showTodoOperations && <TodoOperations todosAmount={todos.length} />}
+      <TodoOperations todosAmount={todos.length}/>
     </Fragment>
   );
 };

@@ -1,0 +1,18 @@
+.todo_filter-button button {
+  border: none;
+  background: transparent;
+  color: var(--dark-grayish-blue);
+  font-family: var(--regular);
+}
+
+.todo_filter-button button:hover {
+  color: hsl(192, 100%, 67%);
+}
+
+.todo_filter-button-selected button {
+  border: none;
+  background: transparent;
+  color: var(--dark-grayish-blue);
+  font-family: var(--regular);
+  color: hsl(192, 100%, 67%);
+}
